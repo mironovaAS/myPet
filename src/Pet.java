@@ -12,27 +12,23 @@ public class Pet {
     private ArrayList<Food> foods; //инвентарь - еда
 
     //конструкторы
-//    public Pet(String name) {
-//        this.name = name;
-//        this.hunger = 50;
-//        this.happiness = 70;
-//        this.energy = 80;
-//    }
+    public Pet(String name) {
+        this.name = name;
+        this.hunger = 50;
+        this.happiness = 70;
+        this.energy = 80;
+    }
 
     public Pet(String name, Toy[] toys) {
         this.name = name;
-//        this.hunger = 50;
-//        this.happiness = 50;
-//        this.energy = 80;
         initParam();
         this.toys = toys;
         this.foods = new ArrayList<>();
     }
 
-
     //действия = методы
 
-    //случайные стартовые параметры
+    //случайные стартовые параметры от 0 до 100
     private void initParam() {
         Random random = new Random();
         hunger = random.nextInt(101);
@@ -43,6 +39,13 @@ public class Pet {
     //покормить питомца
     public void feed() {
         hunger -= 30;
+        if (hunger < 0) hunger = 0;
+        System.out.println(name + " кушает. Ням-ням!");
+    }
+
+    //покормить питомца едой
+    public void feed(Food food) {
+        hunger -= food.getFoodEffect();
         if (hunger < 0) hunger = 0;
         System.out.println(name + " кушает. Ням-ням!");
     }
@@ -103,8 +106,5 @@ public class Pet {
         foods.add(food);
         System.out.println("Добавлена еда: " + food.getName());
     }
-
-
-
 
 }

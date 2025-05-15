@@ -2,7 +2,9 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-
+/*
+    В ПРОЕКТЕ СПРЯТАЛАСЬ ОШИБКА - НАЙДИ ЕЕ!
+ */
 //        Pet petBarsik = new Pet("Барсик");
 //        petBarsik.printStatus();  // Начальное состояние
 //        petBarsik.feed();        // Кормим
@@ -13,7 +15,16 @@ public class Main {
 
         Toy ball = new Toy("Мяч", 20);
         Toy mouse = new Toy("Мышь", 15);
-        Toy[] toys = {ball, mouse}; //инициализируем массив объектами
+
+        //инициализируем массив объектами
+        Toy[] toysFirst = new Toy[3];
+        toysFirst[0] = ball;
+        toysFirst[1] = mouse;
+        toysFirst[3] = new Toy("Носок", 10);
+
+        //сокращенная форма инициализации массива
+        Toy[] toys = {ball, mouse, new Toy("Носок", 10)};
+
 
         Pet petBarsik = new Pet("Барсик", toys);
         petBarsik.printStatus();
